@@ -1,5 +1,7 @@
 
 class gameState {
+    scorePlayerA;
+    scorePlayerB;
     A= 0;
     B= 0;
     C= 0;
@@ -13,7 +15,9 @@ class gameState {
     K= 0;
     L= 0;
     
-    constructor(A, B, C, D, E, F, G, H, I, J, K, L){
+    constructor(scorePlayerA, scorePlayerB, A, B, C, D, E, F, G, H, I, J, K, L){
+        this.scorePlayerA = scorePlayerA;
+        this.scorePlayerB = scorePlayerB;
         this.A = A;
         this.B = B;
         this.C = C;
@@ -28,25 +32,33 @@ class gameState {
         this.L = L;
     }
 }
- 
-    function displayBoard(board){
-        console.log("   A B C D E F")
-        console.log(" 1 " + board.A + " " + board.B + " " + board.C + " " + board.D + " " + board.E + " " + board.F)
-        console.log(" 2 " + board.G + " " + board.H + " " + board.I + " " + board.J + " " + board.K + " " + board.L)
-        console.log("   G H I J K L")
-    }
 
-    function isEmpty(board){
-        for (var key in board){
-            if (board[key] != 0){
-                return false;
-            }
+function displayBoard(game){
+    console.log("   A B C D E F")
+    console.log(" A " + game.A + " " + game.B + " " + game.C + " " + game.D + " " + game.E + " " + game.F)
+    console.log(" B " + game.G + " " + game.H + " " + game.I + " " + game.J + " " + game.K + " " + game.L)
+    console.log("   G H I J K L")
+}
+
+function isEmpty(game){
+    for (var key in game){
+        if (game[key] != 0){
+            return false;
         }
-        return true;
     }
-let newGame = new gameState(0,0,0,0,0,0,0,0,0,0,0,0);
+    return true;
+}
 
-    displayBoard(newGame);
-    console.log(isEmpty(newGame));
-    
+function gainScore(player, seed){
+    player += seed;
+    return player; // ?
+}
+
+let currentGame = new gameState(0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+
+displayBoard (currentGame);
+console.log("Empty board : " + isEmpty(currentGame));
+console.log("Player A current score : "+ gainScore(currentGame.scorePlayerA, 3));
+console.log("Player B current score : "+ currentGame.scorePlayerB);
+
 
