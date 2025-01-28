@@ -54,11 +54,97 @@ function gainScore(player, seed){
     return player; // ?
 }
 
+function nextBox(currentBox, direction){
+    if (direction === 'saw'){
+        switch (currentBox) {
+            case 'A':
+                currentBox = 'B';
+                break
+            case 'B':
+                currentBox = 'C';
+                break
+            case 'C':
+                currentBox = 'D';
+                break
+            case 'D':
+                currentBox = 'E';
+                break
+            case 'E':
+                currentBox = 'F';
+                break
+            case 'F':
+                currentBox = 'G';
+                break
+            case 'G':
+                currentBox = 'H';
+                break
+            case 'H':
+                currentBox = 'I';
+                break
+            case 'I':
+                currentBox = 'J';
+                break
+            case 'J':
+                currentBox = 'K';
+                break
+            case 'K':
+                currentBox = 'L';
+                break
+            case 'L':
+                currentBox = 'A';
+                break
+        } 
+        return currentBox;
+        
+    } else {
+        switch (currentBox) {
+            case 'A':
+                currentBox = 'L';
+                break
+            case 'B':
+                currentBox = 'A';
+                break
+            case 'C':
+                currentBox = 'B';
+                break
+            case 'D':
+                currentBox = 'C';
+                break
+            case 'E':
+                currentBox = 'D';
+                break
+            case 'F':
+                currentBox = 'E';
+                break
+            case 'G':
+                currentBox = 'F';
+                break
+            case 'H':
+                currentBox = 'G';
+                break
+            case 'I':
+                currentBox = 'H';
+                break
+            case 'J':
+                currentBox = 'I';
+                break
+            case 'K':
+                currentBox = 'J';
+                break
+            case 'L':
+                currentBox = 'K';
+                break
+        } 
+        return currentBox;
+    }
+}
+
 let currentGame = new gameState(0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 
 displayBoard (currentGame);
 console.log("Empty board : " + isEmpty(currentGame));
 console.log("Player A current score : "+ gainScore(currentGame.scorePlayerA, 3));
 console.log("Player B current score : "+ currentGame.scorePlayerB);
+console.log("NextBox : " + nextBox('D','saw'))
 
 
